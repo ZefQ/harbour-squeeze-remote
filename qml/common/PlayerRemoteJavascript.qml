@@ -18,7 +18,7 @@
 
 import QtQuick 2.0
 import "base" as Base
-import "../js/common/remotecontrol.js" as Remote
+import "../../js/common/remotecontrol.js" as Remote
 
 
 Base.PlayerRemoteBase {

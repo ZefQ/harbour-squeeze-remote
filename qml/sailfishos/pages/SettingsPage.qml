@@ -26,7 +26,7 @@ Dialog {
     acceptDestinationAction: PageStackAction.Replace
 
     DialogHeader {
-        defaultAcceptText: "Connect"
+        defaultAcceptText: qsTr("Connect")
     }
 
     SilicaFlickable {
@@ -51,7 +51,7 @@ Dialog {
             Label {
                 //anchors.horizontalCenter: parent.horizontalCenter
                 color: Theme.highlightColor
-                text: "Squeezebox server settings."
+                text: qsTr("Squeezebox server settings.")
             }
 
             TextField {
@@ -71,30 +71,30 @@ Dialog {
                 width: parent.width
                 placeholderText: ""
                 text: player.backendServerPort
-                label: "Server http port"
+                label: qsTr("Server http port")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
             TextSwitch {
                 id: savesettingstofile
-                text: "Set as default"
-                description: "Save address and port to settings file."
+                text: qsTr("Set as default")
+                description: qsTr("Save address and port to settings file.")
             }
             TextSwitch {
                 id: deletesettings
-                text: "Clear"
-                description: "Clear all existing data in settings file."
+                text: qsTr("Clear")
+                description: qsTr("Clear all existing data in settings file.")
             }
 
             Label {
                 color: Theme.highlightColor
-                text: "Audio playback"
+                text: qsTr("Audio playback")
             }
 
             TextSwitch {
                 id: enableaudioplayer
-                text: "Enable audio player"
-                description: "Experimental audio support. Sync with other players does not work."
+                text: qsTr("Enable audio player")
+                description: qsTr("Experimental audio support. Sync with other players does not work.")
                 checked: player.enableAudioPlayer
             }
 
@@ -106,7 +106,7 @@ Dialog {
                 }
                 placeholderText: ""
                 text: player.serverTcpPort
-                label: "Server tcp port (audio)"
+                label: qsTr("Server tcp port (audio)")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }

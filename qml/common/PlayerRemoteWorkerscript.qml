@@ -52,7 +52,7 @@ Base.PlayerRemoteBase {
     // WorkerScript for the javascript frontend
     frontend: WorkerScript {
         id: frontend
-        source: "../js/common/remotecontrol.js"
+        source: "../../js/common/remotecontrol.js"
 
         function cmdAjax(cmd) {
             sendMessage({"type": "buttonCommand", "value": cmd});

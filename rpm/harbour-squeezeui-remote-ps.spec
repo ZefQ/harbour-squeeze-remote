@@ -13,8 +13,8 @@ Name:       harbour-squeezeui-remote-ps
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Squeeze Remote
-Version:    0.2
-Release:    5
+Version:    0.3
+Release:    0
 Group:      Qt/Qt
 License:    LICENSE
 URL:        http://example.org/
@@ -67,8 +67,6 @@ desktop-file-install --delete-original       \
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
-%{_datadir}/%{name}/qml/js/common/slimproto.js
-%{_datadir}/%{name}/qml/js/common/remotecontrol.js
 
 # >> files
 # << files

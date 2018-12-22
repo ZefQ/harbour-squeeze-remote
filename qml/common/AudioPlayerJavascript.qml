@@ -28,7 +28,7 @@
 
 import QtQuick 2.0
 import QtMultimedia 5.0
-import "../js/common/slimproto.js" as Slimproto
+import "../../js/common/slimproto.js" as Slimproto
 
 Rectangle {
     property bool started: false

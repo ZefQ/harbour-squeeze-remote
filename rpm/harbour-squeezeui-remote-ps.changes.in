@@ -12,7 +12,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Sun Apr 13 2014 Jack Tar <jack.tar@example.com> 0.0.1-1
-- Scrubbed the deck
-- Hoisted the sails
+* Sat Dec 22 2018 Pawel Spoon <jack.tar@example.com> 0.0.3-0
+- player ui respects pixel ratio, small adaptions for better fit on screen
+- german translation
+- better deployment structure
+
+* Sat Dec 22 2018 Pawel Spoon <jack.tar@example.com> 0.0.2-6
+- adapted volume and track slider to fit to xperia x and intex / jolla c screen
+- added icon
 

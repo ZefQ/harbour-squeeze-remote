@@ -36,7 +36,7 @@ Page {
             margins: Theme.paddingLarge
         }
 
-        text: "Connecting ..."
+        text: qsTr("Connecting ...")
         color: Theme.highlightColor
     }
 
@@ -45,7 +45,7 @@ Page {
         interval: 10000; running: false; repeat: false
         onTriggered: {
             settingstimer.stop();
-            infolabel.text = "Failed";
+            infolabel.text = qsTr("Failed");
             pageStack.replace(Qt.resolvedUrl("SettingsPage.qml"));
         }
     }
@@ -54,7 +54,7 @@ Page {
         onFrontendreadyChanged: {
             if (player.frontendready) {
                 settingstimer.stop();
-                infolabel.text = "Connected"
+                infolabel.text = qsTr("Connected")
                 pageStack.replace(Qt.resolvedUrl("PlayerPage.qml"), null, PageStackAction.Immediate);
             }
         }

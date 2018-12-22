@@ -40,25 +40,25 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: "Settings"
+                text: qsTr("Settings")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("SettingsPage.qml"));
                 }
             }
             MenuItem {
-                text: "Select another player"
+                text: qsTr("Select another player")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), { selectedMedia: player.get_media_menu_settings() });
                 }
             }
             MenuItem {
-                text: "Playlist"
+                text: qsTr("Playlist")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("PlaylistPage.qml"), { selectedMedia: player.get_media_menu_playlist() });
                 }
             }
             MenuItem {
-                text: "Music library"
+                text: qsTr("Music library")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), { selectedMedia: player.get_media_menu_home() });
                 }
@@ -82,7 +82,7 @@ Page {
 
             Image {
                 anchors.horizontalCenter: parent.horizontalCenter
-                height: 280
+                height: 240 * Theme.pixelRatio;
                 fillMode: Image.PreserveAspectFit
                 //antialiasing: true
                 source: player.cover
@@ -97,6 +97,13 @@ Page {
                 color: Theme.highlightColor
             }
             Label {
+                anchors.left: parent.left; anchors.right: parent.right
+                horizontalAlignment: Text.AlignHCenter
+                text: ((player.tracks > 1)?((player.cur_index + 1) + " / " + player.tracks):"") + "  " + player.album
+                color: Theme.secondaryHighlightColor
+                font.pixelSize: Theme.fontSizeTiny
+            }
+            /*Label {
                 anchors.left: parent.left; anchors.right: parent.right // wrapping
                 //anchors.leftMargin: 32
                 horizontalAlignment: Text.AlignHCenter
@@ -105,7 +112,7 @@ Page {
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
                 visible: (text !== "")
-            }
+            }*/
             Label {
                 anchors.left: parent.left; anchors.right: parent.right // wrapping
                 //anchors.leftMargin: 32
@@ -116,21 +123,14 @@ Page {
                 font.pixelSize: Theme.fontSizeSmall
                 visible: (text !== "")
             }
-            Label {
-                anchors.left: parent.left; anchors.right: parent.right
-                horizontalAlignment: Text.AlignHCenter
-                text: ((player.tracks > 1)?((player.cur_index + 1) + " / " + player.tracks):"")
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeTiny
-            }
             Slider {
                 width: parent.width
-                height: 280
+                height: 120 * Theme.pixelRatio
                 handleVisible: true
                 minimumValue: 0
                 maximumValue: 1
                 valueText:  Math.floor((value * player.duration) / 60) + ":" + ("00" + Math.floor((value * player.duration) % 60)).slice(-2)
-                label: "Time played"
+                // label: qsTr("Time played")
                 onDownChanged: if (!down) { player.slider_time(value * player.duration) }
                 Binding on value {
                     when: !parent.down
@@ -139,7 +139,7 @@ Page {
             }
             Row {
                 anchors.horizontalCenter: parent.horizontalCenter
-                spacing: Theme.paddingMedium
+                spacing: Theme.paddingLarge
                 IconButton {
                     icon.source: "image://theme/icon-m-previous"
                     onClicked: player.button_jump_rew()
@@ -159,13 +159,13 @@ Page {
             }
             Slider {
                 width: parent.width
-                height: 110
+                height: 150 * Theme.pixelRatio
                 handleVisible: true
                 //value: player.volume;
                 minimumValue: 0
                 maximumValue: 120
                 valueText: value.toFixed(0)  + " %"
-                label: "Volume"
+                label: qsTr("Volume")
                 onDownChanged: if (!down) { player.slider_volume(value) }
                 Binding on value {
                     when: !parent.down

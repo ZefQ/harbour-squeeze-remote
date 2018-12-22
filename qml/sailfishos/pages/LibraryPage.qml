@@ -96,35 +96,35 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: "Go back home"
+                text: qsTr("Go back home")
                 //visible: (!isPlaylist)
                 onClicked: {
                     pageStack.replaceAbove(null, Qt.resolvedUrl("PlayerPage.qml"));
                 }
             }
             /*MenuItem {
-                text: "Back"
+                text: qsTr("Back")
                 visible: (isPlaylist)
                 onClicked: {
                     pageStack.pop();
                 }
             }*/
             MenuItem {
-                text: "Select another player"
+                text: qsTr("Select another player")
                 //visible: (!isPlaylist)
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), { selectedMedia: player.get_media_menu_settings() });
                 }
             }
             MenuItem {
-                text: "Now playing"
+                text: qsTr("Now playing")
                 //visible: (!isPlaylist)
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("PlayerPage.qml"));
                 }
             }
             MenuItem {
-                text: "Playlist"
+                text: qsTr("Playlist")
                 visible: (!isPlaylist)
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("PlaylistPage.qml"), { selectedMedia: player.get_media_menu_playlist() });
@@ -171,14 +171,14 @@ Page {
                 property var newMedia
                 MenuLabel {
                     visible: newMedia.input !== ""
-                    text: "Input"
+                    text: qsTr("Input")
                 }
                 TextField {
                     visible: newMedia.input !== ""
                     id:inputtext
                     width: parent.width
                     focus: true
-                    placeholderText: "Type here..."
+                    placeholderText: qsTr("Type here...")
                     Keys.onReturnPressed:  pageStack.push(
                                                Qt.resolvedUrl("LibraryPage.qml"), {
                                                    selectedMedia: player.media_go(newMedia, "go", text),
@@ -186,7 +186,7 @@ Page {
                 }
                 MenuItem {
                     visible: newMedia.input !== ""
-                    text: "OK"
+                    text: qsTr("OK")
                     onClicked: pageStack.push(
                                    Qt.resolvedUrl("LibraryPage.qml"), {
                                        selectedMedia: player.media_go(newMedia, "go", inputtext.text),
@@ -195,7 +195,7 @@ Page {
                 MenuItem {
                     visible: newMedia.input === ""
                     enabled: newMedia.play !== ""
-                    text: "Play"
+                    text: qsTr("Play")
                     onClicked: {
                         player.media_go(newMedia, "play", "");
                         goToWindow("nowPlaying");
@@ -204,13 +204,13 @@ Page {
                 MenuItem {
                     visible: newMedia.input === ""
                     enabled: newMedia.add !== ""
-                    text: "Add"
+                    text: qsTr("Add")
                     onClicked: player.media_go(newMedia, "add", "")
                 }
                 MenuItem {
                     visible: newMedia.input === ""
                     enabled: newMedia.more !== ""
-                    text: "More"
+                    text: qsTr("More")
                     onClicked: pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), {
                                                   selectedMedia: player.media_go(newMedia, "more", "")});
                 }
