@@ -1,5 +1,6 @@
 # harbour-squeeze-remote
 remote control for logitech media server aka. squeezeserver
+check out the picoplayer.org page for a raspberry pie based player and server !
 
 SailfishOS RPM: <https://openrepos.net/content/pawelspoon/squeeze-remote>
 
