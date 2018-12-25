@@ -14,10 +14,10 @@ Name:       harbour-squeezeui-remote-ps
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Squeeze Remote
 Version:    0.3
-Release:    0
+Release:    3
 Group:      Qt/Qt
 License:    LICENSE
-URL:        http://example.org/
+URL:        http://openrepos.net/PawelSpoon/harbour-squeezeui-remote-ps
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-squeezeui-remote-ps.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -67,6 +67,5 @@ desktop-file-install --delete-original       \
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
-
 # >> files
 # << files

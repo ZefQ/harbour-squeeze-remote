@@ -48,10 +48,15 @@ Dialog {
 
             spacing: Theme.paddingMedium
 
-            Label {
-                //anchors.horizontalCenter: parent.horizontalCenter
+            TextField { // dummy to fix the ui: move next label down. maybe the real reason is the centerIn of the column.
+                height: 100 * Theme.pixelRatio
                 color: Theme.highlightColor
-                text: qsTr("Squeezebox server settings.")
+                text: qsTr("")
+            }
+
+            Label {
+                color: Theme.highlightColor
+                text: qsTr("Squeezebox server settings")
             }
 
             TextField {

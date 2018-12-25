@@ -28,10 +28,8 @@ int main(int argc, char *argv[])
 
     Shared *shared = new Shared();
     view->rootContext()->setContextProperty("shared", shared);
-    // qDebug() << view->filePath();
     QString x = app->applicationDirPath();
     view->setSource(QUrl::fromLocalFile("/usr/share/harbour-squeezeui-remote-ps/qml/harbour-squeezeui-remote-ps.qml"));
-    // view->setSource(QUrl("qrc:///src/qml/harbour-squeezeui-remote.qml"));
 
     view->showFullScreen();
 

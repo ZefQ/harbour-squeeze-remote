@@ -12,6 +12,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Dec 25 2018 Pawel Spoon <jack.tar@example.com> 0.0.3-3
+- nicer Settings page
+
+* Sun Dec 23 2018 Pawel Spoon <jack.tar@example.com> 0.0.3-2
+- chinese translation
+
 * Sat Dec 22 2018 Pawel Spoon <jack.tar@example.com> 0.0.3-0
 - player ui respects pixel ratio, small adaptions for better fit on screen
 - german translation
