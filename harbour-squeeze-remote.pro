@@ -57,5 +57,9 @@ INSTALLS += js
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-squeeze-remote-de.ts
-
+TRANSLATIONS += translations/harbour-squeeze-remote-cs.ts \
+                translations/harbour-squeeze-remote-de.ts \
+                translations/harbour-squeeze-remote-es.ts \
+                translations/harbour-squeeze-remote-nl.ts \
+                translations/harbour-squeeze-remote-pl.ts \
+                translations/harbour-squeeze-remote-zh_CN.ts                
