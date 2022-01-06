@@ -41,7 +41,7 @@ Icon: https://raw.githubusercontent.com/PawelSpoon/harbour-squeeze-remote/master
 Screenshots:
   - https://raw.githubusercontent.com/PawelSpoon/harbour-squeeze-remote/master/screenshots/Bildschirmfoto_20220106_001.png
 Categories:
-  - Media
+  - Multimedia
 
 %prep
 %setup -q -n %{name}-%{version}
