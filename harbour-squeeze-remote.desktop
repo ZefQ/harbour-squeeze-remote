@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 X-Nemo-Application-Type=silica-qt5
-Icon=harbour-squeezeui-remote-ps
-Exec=harbour-squeezeui-remote-ps
-Name=harbour-squeezeui-remote-ps
+Icon=harbour-squeeze-remote
+Exec=harbour-squeeze-remote
+Name=harbour-squeeze-remote
 # translation example:
 # your app name in German locale (de)
 #

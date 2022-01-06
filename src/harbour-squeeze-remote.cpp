@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[])
 {
-    // SailfishApp::main() will display "qml/harbour-squeezeui-remote-ps.qml", if you need more
+    // SailfishApp::main() will display "qml/harbour-squeeze-remote.qml", if you need more
     // control over initialization, you can use:
     //
     //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     Shared *shared = new Shared();
     view->rootContext()->setContextProperty("shared", shared);
     QString x = app->applicationDirPath();
-    view->setSource(QUrl::fromLocalFile("/usr/share/harbour-squeezeui-remote-ps/qml/harbour-squeezeui-remote-ps.qml"));
+    view->setSource(QUrl::fromLocalFile("/usr/share/harbour-squeeze-remote/qml/harbour-squeeze-remote.qml"));
 
     view->showFullScreen();
 

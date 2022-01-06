@@ -10,13 +10,16 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = harbour-squeezeui-remote-ps
+TARGET = harbour-squeeze-remote
 
 CONFIG += sailfishapp
 
 SOURCES += \
     src/shared.cpp \
-    src/harbour-squeezeui-remote-ps.cpp
+    src/harbour-squeeze-remote.cpp
+
+HEADERS += \
+    src/shared.h
 
 DISTFILES += \
     qml/common/base/PlayerRemoteBase.qml \
@@ -30,15 +33,14 @@ DISTFILES += \
     qml/sailfishos/pages/PlaylistPage.qml \
     qml/sailfishos/pages/SettingsPage.qml \
     qml/sailfishos/pages/StartupPage.qml \
-    qml/harbour-squeezeui-remote-ps.qml \
+    qml/harbour-squeeze-remote.qml \
     qml/js/common/remotecontrol.js \
     qml/js/common/slimproto.js \
-    rpm/harbour-squeezeui-remote-ps.changes.in \
-    rpm/harbour-squeezeui-remote-ps.changes.run.in \
-    rpm/harbour-squeezeui-remote-ps.spec \
-    rpm/harbour-squeezeui-remote-ps.yaml \
+    rpm/harbour-squeeze-remote.changes.in \
+    rpm/harbour-squeeze-remote.spec \
+    rpm/harbour-squeeze-remote.yaml \
     translations/*.ts \
-    harbour-squeezeui-remote-ps.desktop
+    harbour-squeeze-remote.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -46,7 +48,7 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 # following CONFIG line
 CONFIG += sailfishapp_i18n
 
-js.path = /usr/share/harbour-olive-goes-shopping/js
+js.path = /usr/share/harbour-squeeze-remote/js
 js.files = js/*
 
 INSTALLS += js
@@ -55,7 +57,5 @@ INSTALLS += js
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-squeezeui-remote-ps-de.ts
+TRANSLATIONS += translations/harbour-squeeze-remote-de.ts
 
-HEADERS += \
-    src/shared.h

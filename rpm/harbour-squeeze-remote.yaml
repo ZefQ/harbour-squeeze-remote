@@ -1,12 +1,12 @@
-Name: harbour-squeezeui-remote-ps
+Name: harbour-squeeze-remote
 Summary: Squeeze Remote
-Version: 0.3
-Release: 2
+Version: 3.0
+Release: 0
 # The contents of the Group field should be one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
 Group: Qt/Qt
-URL: http://openrepos.net/PawelSpoon/harbour-squeezeui-remote-ps
-License: LICENSE
+URL: https://openrepos.net/PawelSpoon/harbour-squeeze-remote
+License: GPLv3
 # This must be generated before uploading a package to a remote build service.
 # Usually this line does not need to be modified.
 Sources:

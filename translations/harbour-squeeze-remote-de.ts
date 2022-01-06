@@ -95,52 +95,52 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="60"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="59"/>
         <source>Squeezebox server settings</source>
         <translation>Server Einstellungen</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="81"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="79"/>
         <source>Server http port</source>
         <translation>Server HTTP Port</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="87"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="85"/>
         <source>Set as default</source>
         <translation>Als Standard übernehmen</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="88"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="86"/>
         <source>Save address and port to settings file.</source>
         <translation>Server Adresse und Port speichern</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="92"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="90"/>
         <source>Clear</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="93"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="91"/>
         <source>Clear all existing data in settings file.</source>
         <translation>Einstellungen löschen</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="98"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="96"/>
         <source>Audio playback</source>
         <translation>Audio Wiedergabe</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="103"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="101"/>
         <source>Enable audio player</source>
         <translation>Audioplayer aktivieren</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="104"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="102"/>
         <source>Experimental audio support. Sync with other players does not work.</source>
         <translation>Experimentelle Audiounterstützung. Sychronisation mit anderen Abspielgeräten wird nicht unterstützt.</translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="116"/>
+        <location filename="../qml/sailfishos/pages/SettingsPage.qml" line="114"/>
         <source>Server tcp port (audio)</source>
         <translation>Server TCP Port (audio)</translation>
     </message>

@@ -18,4 +18,3 @@ forked from squeeze-ui-remote created by fholmer:
 <https://openrepos.net/content/fholmer/squeeze-ui>
 <https://bitbucket.org/fholmer/harbour-squeezeui-remote>
 
-At current stage it does install in to harbour-squeeze-ui-remote-ps, cause i never merged the changes in to be called harbour-squeezer as the 32 bit app on openrepos
