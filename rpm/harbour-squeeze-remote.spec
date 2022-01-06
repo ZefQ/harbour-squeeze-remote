@@ -12,7 +12,7 @@ Name:       harbour-squeeze-remote
 %{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
-Summary:    Squeeze Remote
+Summary:    Native Squeezebox Remote Control
 Version:    3.0
 Release:    0
 Group:      Qt/Qt
@@ -28,8 +28,20 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  desktop-file-utils
 
 %description
-Short description of my Sailfish OS Application
+Native remote control for logitech media server aka squeeze server
+You can find more details on a raspberry pie based player and server here https://www.picoreplayer.org 
 
+Openrepos: https://openrepos.net/content/pawelspoon/squeezeremote
+Github: https://github.com/PawelSpoon/harbour-squeeze-remote
+
+
+PackageName: harbour-squeeze-remote
+Type: desktop-application
+Icon: https://raw.githubusercontent.com/PawelSpoon/harbour-squeeze-remote/master/icons/172x172/harbour-squeeze-remote.png
+Screenshots:
+  - https://raw.githubusercontent.com/sailfishos-chum/ownkeepass/master/screenshots/screenshot-ownkeepass1.png
+Categories:
+  - Media
 
 %prep
 %setup -q -n %{name}-%{version}
