@@ -16,7 +16,7 @@ Summary:    Squeeze Remote
 Version:    0.3
 Release:    3
 Group:      Qt/Qt
-License:    LICENSE
+License:    GPLv3
 URL:        http://openrepos.net/PawelSpoon/harbour-squeezeui-remote-ps
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-squeezeui-remote-ps.yaml
