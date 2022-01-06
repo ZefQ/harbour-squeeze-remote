@@ -39,7 +39,7 @@ PackageName: harbour-squeeze-remote
 Type: desktop-application
 Icon: https://raw.githubusercontent.com/PawelSpoon/harbour-squeeze-remote/master/icons/172x172/harbour-squeeze-remote.png
 Screenshots:
-  - https://raw.githubusercontent.com/sailfishos-chum/ownkeepass/master/screenshots/screenshot-ownkeepass1.png
+  - https://raw.githubusercontent.com/PawelSpoon/harbour-squeeze-remote/master/screenshots/Bildschirmfoto_20220106_001.png
 Categories:
   - Media
 
