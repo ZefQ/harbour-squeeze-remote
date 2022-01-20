@@ -6,6 +6,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Thu Jan 06 2022 Pawel Spoon <jack.tar@example.com> 3.0.1-0
+- fix translations on obs
+
 * Thu Jan 06 2022 Pawel Spoon <jack.tar@example.com> 3.0-0
 - rename to harbour-squeeze-ui
 - make available on OBS
