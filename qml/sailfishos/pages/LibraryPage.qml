@@ -1,3 +1,5 @@
+
+
 /*  Squeezeui - Graphical user interface for Squeezebox players.
 #
 #  Copyright (C) 2014 Frode Holmer <fholmer+squeezeui@gmail.com>
@@ -15,10 +17,9 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
+import "../component"
 
 Page {
     id: page
@@ -30,6 +31,7 @@ Page {
     property bool jumpToHiglightLine: false
     property bool isPlaylist: false
 
+
     /*RemorsePopup { id: remorse }
     Connections {
         target: player
@@ -37,7 +39,6 @@ Page {
             remorse.execute(player.popup);
         }
     }*/
-
     ListModel {
         id: menuModel
         property bool menuReady: player.menuReady
@@ -65,17 +66,16 @@ Page {
             if (windowtype === "grandparent") {
                 pageStack.pop();
             }
-        }
-        else if (windowtype === "nowPlaying") {
+        } else if (windowtype === "nowPlaying") {
             if (pageStack.depth === 2) {
                 pageStack.pop();
-            }
-            else {
+            } else {
                 pageStack.push(Qt.resolvedUrl("PlayerPage.qml"));
             }
-        }
-        else if (windowtype === "refresh") {
-            pageStack.replace(Qt.resolvedUrl("LibraryPage.qml"), { selectedMedia: player.media_go(selectedMedia, "go", "") });
+        } else if (windowtype === "refresh") {
+            pageStack.replace(Qt.resolvedUrl("LibraryPage.qml"), {
+                                  "selectedMedia": player.media_go(selectedMedia, "go", "")
+                              });
         }
     }
 
@@ -85,13 +85,19 @@ Page {
         model: menuModel
         anchors {
             fill: parent
-            bottomMargin: 67
+            bottomMargin: playerName.height
         }
 
+        spacing: Theme.paddingMedium
         visible: ((parent.status === PageStatus.Active) && menuModel.menuReady)
 
         header: PageHeader {
             title: selectedMedia.name
+        }
+
+        ViewPlaceholder {
+            enabled: menuModel.menuReady && listView.count === 0
+            text: qsTr("No items found")
         }
 
         PullDownMenu {
@@ -102,20 +108,17 @@ Page {
                     pageStack.replaceAbove(null, Qt.resolvedUrl("PlayerPage.qml"));
                 }
             }
-            /*MenuItem {
-                text: qsTr("Back")
-                visible: (isPlaylist)
-                onClicked: {
-                    pageStack.pop();
-                }
-            }*/
+
             MenuItem {
                 text: qsTr("Select another player")
                 //visible: (!isPlaylist)
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), { selectedMedia: player.get_media_menu_settings() });
+                    pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), {
+                                       "selectedMedia": player.get_media_menu_settings()
+                                   });
                 }
             }
+
             MenuItem {
                 text: qsTr("Now playing")
                 //visible: (!isPlaylist)
@@ -123,49 +126,45 @@ Page {
                     pageStack.push(Qt.resolvedUrl("PlayerPage.qml"));
                 }
             }
+
             MenuItem {
                 text: qsTr("Playlist")
                 visible: (!isPlaylist)
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("PlaylistPage.qml"), { selectedMedia: player.get_media_menu_playlist() });
+                    pageStack.push(Qt.resolvedUrl("PlaylistPage.qml"), {
+                                       "selectedMedia": player.get_media_menu_playlist()
+                                   });
                 }
             }
         }
 
-        delegate: ListItem {
+        delegate: SqueezeItemDelegate {
             id: myDelegate
             menu: contextMenu
-            showMenuOnPressAndHold: false
-            contentHeight: (model.media.name.indexOf("\n")>0)?(Theme.itemSizeMedium):(Theme.itemSizeSmall)
+            thumbnail: model.media.thumb
+            fullTitle: model.media.name
 
-            Label {
-                x: Theme.paddingLarge
-                text: model.media.name
-                anchors.verticalCenter: parent.verticalCenter
-                color: ( (index ===  higlightLine) ? Theme.highlightColor : Theme.primaryColor)
-            }
             onPressAndHold: {
-                 myDelegate.showMenu({ newMedia: media });
+                myDelegate.openMenu({"newMedia": media});
             }
+
             onClicked: {
                 if (model.media.window === "") {
                     if (model.media.input !== "") {
-                        myDelegate.showMenu({ newMedia: media });
-                        // This is available in all editors.
-                    }
-                    else {
+                        myDelegate.showMenu({"newMedia": media});
+                    } else {
                         pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), {
-                                           selectedMedia: player.media_go(model.media, "go", "")});
+                                           "selectedMedia": player.media_go(model.media, "go", "")
+                                       });
                     }
-                }
-                else {
-                    player.media_go(model.media, "go", "")
+                } else {
+                    player.media_go(model.media, "go", "");
                     goToWindow(model.media.window);
                 }
             }
-       }
+        }
 
-       Component {
+        Component {
             id: contextMenu
             ContextMenu {
                 property var newMedia
@@ -175,22 +174,23 @@ Page {
                 }
                 TextField {
                     visible: newMedia.input !== ""
-                    id:inputtext
+                    id: inputtext
                     width: parent.width
                     focus: true
                     placeholderText: qsTr("Type here...")
-                    Keys.onReturnPressed:  pageStack.push(
-                                               Qt.resolvedUrl("LibraryPage.qml"), {
-                                                   selectedMedia: player.media_go(newMedia, "go", text),
-                                                   selectedInputText: text});
+                    Keys.onReturnPressed: pageStack.push(
+                                              Qt.resolvedUrl("LibraryPage.qml"), {
+                                                  "selectedMedia": player.media_go(newMedia, "go", text),
+                                                  "selectedInputText": text
+                                              });
                 }
                 MenuItem {
                     visible: newMedia.input !== ""
                     text: qsTr("OK")
-                    onClicked: pageStack.push(
-                                   Qt.resolvedUrl("LibraryPage.qml"), {
-                                       selectedMedia: player.media_go(newMedia, "go", inputtext.text),
-                                       selectedInputText: inputtext.text});
+                    onClicked: pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), {
+                                                  "selectedMedia": player.media_go(newMedia, "go", inputtext.text),
+                                                  "selectedInputText": inputtext.text
+                                              });
                 }
                 MenuItem {
                     visible: newMedia.input === ""
@@ -211,8 +211,10 @@ Page {
                     visible: newMedia.input === ""
                     enabled: newMedia.more !== ""
                     text: qsTr("More")
-                    onClicked: pageStack.push(Qt.resolvedUrl("LibraryPage.qml"), {
-                                                  selectedMedia: player.media_go(newMedia, "more", "")});
+                    onClicked: pageStack.push(Qt.resolvedUrl(
+                                                  "LibraryPage.qml"), {
+                                                  "selectedMedia": player.media_go(newMedia, "more", "")
+                                              });
                 }
                 Component.onCompleted: inputtext.forceActiveFocus()
             }
@@ -225,7 +227,7 @@ Page {
 
     BusyIndicator {
         anchors.centerIn: parent
-        running:  ((parent.status === PageStatus.Active) && !listView.visible)
+        running: ((parent.status === PageStatus.Active) && !listView.visible)
     }
 
     Separator {
@@ -242,7 +244,7 @@ Page {
             bottom: parent.bottom
         }
         IconButton {
-            visible: ( (listView.currentIndex + 100) < listView.count )
+            visible: ((listView.currentIndex + 100) < listView.count)
             icon.source: "image://theme/icon-m-down"
             onClicked: {
                 listView.currentIndex = listView.currentIndex + 100
@@ -250,7 +252,7 @@ Page {
             }
         }
         IconButton {
-            visible: ( (listView.currentIndex - 100) > 0 )
+            visible: ((listView.currentIndex - 100) > 0)
             icon.source: "image://theme/icon-m-up"
             onClicked: {
                 listView.currentIndex = listView.currentIndex - 100
@@ -260,6 +262,7 @@ Page {
     }
 
     PageHeader {
+        id: playerName
         anchors {
             left: parent.left
             right: parent.right
@@ -268,5 +271,3 @@ Page {
         title: player.name
     }
 }
-
-

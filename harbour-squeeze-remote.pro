@@ -27,6 +27,7 @@ DISTFILES += \
     qml/common/PlayerRemoteJavascript.qml \
     qml/common/PlayerRemotePython.qml \
     qml/common/PlayerRemoteWorkerscript.qml \
+    qml/sailfishos/component/SqueezeItemDelegate.qml \
     qml/sailfishos/cover/CoverPage.qml \
     qml/sailfishos/pages/LibraryPage.qml \
     qml/sailfishos/pages/PlayerPage.qml \
@@ -62,4 +63,4 @@ TRANSLATIONS += translations/harbour-squeeze-remote-cs.ts \
                 translations/harbour-squeeze-remote-es.ts \
                 translations/harbour-squeeze-remote-nl.ts \
                 translations/harbour-squeeze-remote-pl.ts \
-                translations/harbour-squeeze-remote-zh_CN.ts                
+                translations/harbour-squeeze-remote-zh_CN.ts

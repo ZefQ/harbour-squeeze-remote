@@ -32,6 +32,7 @@ import "../../js/common/slimproto.js" as Slimproto
 
 Rectangle {
     property bool started: false
+    property alias seekable: audio.seekable
 
     Connections {
         target: shared

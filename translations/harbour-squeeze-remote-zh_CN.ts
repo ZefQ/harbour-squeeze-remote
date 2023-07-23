@@ -43,6 +43,10 @@
         <source>OK</source>
         <translation>好的</translation>
     </message>
+    <message>
+        <source>No items found</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlayerPage</name>

@@ -4,7 +4,12 @@
 <context>
     <name>LibraryPage</name>
     <message>
-        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="99"/>
+        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="100"/>
+        <source>No items found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="105"/>
         <source>Go back home</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14,22 +19,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="120"/>
+        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="123"/>
         <source>Now playing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="127"/>
+        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="131"/>
         <source>Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="174"/>
+        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="173"/>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="181"/>
+        <location filename="../qml/sailfishos/pages/LibraryPage.qml" line="180"/>
         <source>Type here...</source>
         <translation type="unfinished"></translation>
     </message>
