@@ -1,3 +1,5 @@
+
+
 /*  Squeezeui - Graphical user interface for Squeezebox players.
 #
 #  Copyright (C) 2014 Frode Holmer <fholmer+squeezeui@gmail.com>
@@ -16,6 +18,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 /*
   Local audioplayer using QtMultimedia.
   This is a temporary solution. Known issues:
@@ -25,10 +28,9 @@
       when trying to stream from Spotify etc.
     - bufferProgress do not work on Windows?
   */
-
 import QtQuick 2.0
 import QtMultimedia 5.0
-import "../../js/common/slimproto.js" as Slimproto
+import "qrc:/js/common/slimproto.js" as Slimproto
 
 Rectangle {
     property bool started: false
@@ -41,7 +43,9 @@ Rectangle {
 
     Timer {
         id: delayed
-        interval: 0; running: false; repeat: false
+        interval: 0
+        running: false
+        repeat: false
         property var callbackfunc: function () {}
 
         function exec(delay, callback) {
@@ -51,6 +55,7 @@ Rectangle {
                 delayed.start();
             }
             else {
+
                 //console.log("Delayed timer already running");
             }
         }
@@ -80,11 +85,12 @@ Rectangle {
         Slimproto.on_playback_resume = function (delay) {
             if (delay !== 0) {
                 //console.log("DELAYED RESUME", delay);
-                delayed.exec(delay, function () {audio.play();});
+                delayed.exec(delay, function () {
+                    audio.play();
+                });
             }
             else {
                 audio.play();
-
             }
             send_stat("STMr", 0);
         }
@@ -99,9 +105,11 @@ Rectangle {
             audio.isPaused = true;
             audio.pause();
 
-            if (interval !==0) {
+            if (interval !== 0) {
                 //console.log("DELAYED PAUSE/RESUME", interval);
-                delayed.exec(interval, function () {audio.play();});
+                delayed.exec(interval, function () {
+                    audio.play();
+                });
             }
             else {
                 send_stat("STMp", 0);
@@ -146,13 +154,10 @@ Rectangle {
             }
 
             //console.log(src);
-
             audio.stop();
             send_stat("STMf", 0);
 
             //console.log("on_playback_start startAsPaused", startAsPaused);
-
-
             if (startAsPaused) {
                 audio.isPaused = true;
                 audio.isBufferReady = false;
@@ -185,15 +190,13 @@ Rectangle {
         }
     }
 
-
     MediaPlayer {
         id: audio
         property bool isPaused: false
         property bool isReadyForNext: false
         property bool isBufferReady: true
 
-        autoLoad : true
-
+        autoLoad: true
 
         onPlaying: {
             isReadyForNext = false;
@@ -211,15 +214,15 @@ Rectangle {
         }
 
         onPositionChanged: {
-            if ( (playbackState === Audio.PlayingState) && ((duration - position) <= 10) && !isReadyForNext) {
+            if ((playbackState === Audio.PlayingState) && ((duration - position) <= 10) && !isReadyForNext) {
                 isReadyForNext = true;
                 //send_stat("STMd", 0); //TODO FIX THIS.
             }
             else {
                 send_stat("STMt", 0);
             }
-
         }
+
 
         /*onPlaybackStateChanged: {
             console.log("playbackState", playbackState);
@@ -230,7 +233,6 @@ Rectangle {
                 }
             }
         }*/
-
         onBufferProgressChanged: {
 
             if (!isBufferReady) {

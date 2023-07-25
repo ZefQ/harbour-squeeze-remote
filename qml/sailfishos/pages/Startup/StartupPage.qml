@@ -1,3 +1,5 @@
+
+
 /*  Squeezeui - Graphical user interface for Squeezebox players.
 #
 #  Copyright (C) 2014 Frode Holmer <fholmer+squeezeui@gmail.com>
@@ -15,21 +17,19 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
 
     BusyIndicator {
-        id:waitforserver
+        id: waitforserver
         anchors.centerIn: parent
         size: BusyIndicatorSize.Large
         running: true
-
     }
     Label {
-        id:infolabel
+        id: infolabel
         anchors {
             top: waitforserver.bottom
             horizontalCenter: parent.horizontalCenter
@@ -42,11 +42,13 @@ Page {
 
     Timer {
         id: settingstimer
-        interval: 10000; running: false; repeat: false
+        interval: 10000
+        running: false
+        repeat: false
         onTriggered: {
             settingstimer.stop();
             infolabel.text = qsTr("Failed");
-            pageStack.replace(Qt.resolvedUrl("SettingsPage.qml"));
+            pageStack.replace(Qt.resolvedUrl("../../pages/Settings/SettingsPage.qml"));
         }
     }
     Connections {
@@ -54,8 +56,10 @@ Page {
         onFrontendreadyChanged: {
             if (player.frontendready) {
                 settingstimer.stop();
-                infolabel.text = qsTr("Connected")
-                pageStack.replace(Qt.resolvedUrl("PlayerPage.qml"), null, PageStackAction.Immediate);
+                infolabel.text = qsTr("Connected");
+                pageStack.replace(Qt.resolvedUrl("../../pages/Library/LibraryPage.qml"), {
+                                      "selectedMedia": player.get_media_menu_home()
+                                  }, PageStackAction.Immediate);
             }
         }
     }

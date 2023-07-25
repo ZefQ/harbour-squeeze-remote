@@ -1,3 +1,5 @@
+
+
 /*  Squeezeui - Graphical user interface for Squeezebox players.
 #
 #  Copyright (C) 2014 Frode Holmer <fholmer+squeezeui@gmail.com>
@@ -15,11 +17,9 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 import QtQuick 2.0
 import "base" as Base
-import "../../js/common/remotecontrol.js" as Remote
-
+import "qrc:/js/common/remotecontrol.js" as Remote
 
 Base.PlayerRemoteBase {
     id: player
@@ -32,15 +32,17 @@ Base.PlayerRemoteBase {
 
     Timer {
         id: ajax
-        interval: 100; running: false; repeat: true
-        onTriggered: frontend.statusCommand();
+        interval: 100
+        running: false
+        repeat: true
+        onTriggered: frontend.statusCommand()
 
         function init() {
             if (player.backendready) {
                 frontend.init();
 
                 frontend.statusCommand();
-                ajax.start()
+                ajax.start();
             }
         }
     }
@@ -82,7 +84,7 @@ Base.PlayerRemoteBase {
 
         Component.onCompleted: {
 
-            Remote.sendSongInfo = function() {
+            Remote.sendSongInfo = function () {
                 name = Remote.name;
                 song = Remote.song;
                 artist = Remote.artist;
@@ -99,7 +101,7 @@ Base.PlayerRemoteBase {
                 player.repeat = Remote.repeat;
                 shuffle = Remote.shuffle;
                 cur_index = Remote.cur_index;
-                tracks = Remote.tracks
+                tracks = Remote.tracks;
                 frontendready = true;
             }
 
@@ -107,12 +109,11 @@ Base.PlayerRemoteBase {
                 shared.sendHttpRequest(urlStr, contentType, requestStr);
             }
 
-            Remote.menuModel_sync = function () {
-                // override to prevent sync when not running as WorkerScript
+            Remote.menuModel_sync = function () {// override to prevent sync when not running as WorkerScript
             }
 
             Remote.sendMenuReady = function () {
-                 menuReady = true;
+                menuReady = true;
             }
 
             Remote.sendMenuDone = function () {

@@ -1,3 +1,5 @@
+
+
 /*  Squeezeui - Graphical user interface for Squeezebox players.
 #
 #  Copyright (C) 2014 Frode Holmer <fholmer+squeezeui@gmail.com>
@@ -15,18 +17,16 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 import QtQuick 2.0
 import io.thp.pyotherside 1.3
 
 import "base"
 
+
 /*
     Not implemented yet
 
 */
-
-
 PlayerRemoteBase {
     id: player
 
@@ -35,7 +35,9 @@ PlayerRemoteBase {
     // WorkerScript for the javascript frontend
     frontend: Python {
 
-        function media_go(o){ call('playerotherside.player.media_go', [o]) }
+        function media_go(o) {
+            call('playerotherside.player.media_go', [o]);
+        }
 
         function cmdAjax(cmd) {
             call('playerotherside.player.buttonCommand', [cmd]);
@@ -57,13 +59,12 @@ PlayerRemoteBase {
             call('playerotherside.player.statusCommand', []);
         }
         function init() {
-            call('playerotherside.player.menuMedia',
-                 [backendServerAddress, backendPlayerid, backendServerPort, menuModel]);
+            call('playerotherside.player.menuMedia', [backendServerAddress, backendPlayerid, backendServerPort, menuModel]);
         }
 
         Component.onCompleted: {
-            player.song = Controller.test()
-            console.log(Qt.resolvedUrl('../../common'))
+            player.song = Controller.test();
+            console.log(Qt.resolvedUrl('../../common'));
             addImportPath(Qt.resolvedUrl('../../common').substr('file://'.length));
             addImportPath(Qt.resolvedUrl('../../..').substr('file://'.length));
             importModule('playerotherside', function () {});
@@ -73,15 +74,15 @@ PlayerRemoteBase {
 
             if (command === 'notify') {
                 if (args[0] === 'newdata') {
-                    call('playerotherside.player.get_new_data', [], function(messageObject){
+                    call('playerotherside.player.get_new_data', [], function (messageObject) {
                         time = messageObject.time;
                         timeplayed = messageObject.timeplayed;
                         timeleft = messageObject.timeleft;
                         duration = messageObject.duration;
                     });
                 }
-                else if (args[0] === 'new_song_info'){
-                    call('playerotherside.player.get_new_song_info', [], function(messageObject) {
+                else if (args[0] === 'new_song_info') {
+                    call('playerotherside.player.get_new_song_info', [], function (messageObject) {
                         name = messageObject.name;
                         song = messageObject.song;
                         artist = messageObject.artist;
@@ -94,25 +95,25 @@ PlayerRemoteBase {
                         player.repeat = messageObject.repeat;
                         shuffle = messageObject.shuffle;
                         cur_index = messageObject.cur_index;
-                        tracks = messageObject.tracks
+                        tracks = messageObject.tracks;
                         frontendready = true;
                     });
                 }
-                else if (args[0] === 'menu'){
-                    call('playerotherside.player._get_menu', [], function(res){
+                else if (args[0] === 'menu') {
+                    call('playerotherside.player._get_menu', [], function (res) {
                         player.menuModel.clear();
-                        for (var i=0;i<res.length;i++){
+                        for (var i = 0; i < res.length; i++) {
                             player.menuModel.append(res[i]);
                         }
                     });
                 }
-                else if (args[0] === 'popup'){
-                    call('playerotherside.player._get_popup', [], function(res){
+                else if (args[0] === 'popup') {
+                    call('playerotherside.player._get_popup', [], function (res) {
                         popup = res;
                     });
                 }
             }
-            else{
+            else {
                 song = args;
             }
         }

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>js/common/remotecontrol.js</file>
+        <file>js/common/slimproto.js</file>
+        <file>translations/harbour-squeeze-remote-cs.ts</file>
+        <file>translations/harbour-squeeze-remote-de.ts</file>
+        <file>translations/harbour-squeeze-remote-es.ts</file>
+        <file>translations/harbour-squeeze-remote-nl.ts</file>
+        <file>translations/harbour-squeeze-remote-pl.ts</file>
+        <file>translations/harbour-squeeze-remote-zh_CN.ts</file>
+        <file>translations/harbour-squeeze-remote.ts</file>
+    </qresource>
+</RCC>

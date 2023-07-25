@@ -1,13 +1,23 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import "sailfishos/pages"
+import "sailfishos/pages/Player"
 import "common"
 
-ApplicationWindow
-{
-    initialPage: Component { StartupPage { } }
+ApplicationWindow {
+    id: root
+
+    property bool isPlaying: false
+
+    bottomMargin: playerPanel.parent == contentItem ? 0 : playerPanel.visibleSize
+    initialPage: Qt.resolvedUrl("sailfishos/pages/Startup/StartupPage.qml")
     cover: Qt.resolvedUrl("sailfishos/cover/CoverPage.qml")
+
+
+    Binding on isPlaying {
+        when: !player.isPlaying || player.isPlaying
+        value: player.isPlaying
+    }
 
     PlayerRemoteWorkerscript {
         id: player
@@ -31,5 +41,10 @@ ApplicationWindow
 
     AudioPlayerJavascript {
         id: audioplayer
+    }
+
+    PlayerPanel {
+        id: playerPanel
+        player: player
     }
 }

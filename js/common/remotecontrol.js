@@ -43,7 +43,8 @@ var shuffle = 0
 var repeat = 0
 var cur_index = 0
 var tracks = 0
-
+var is_playing = false
+var is_seekable = false
 
 function setPreferredPlayerid(pid) {
     _preferredPlayerid = pid;
@@ -205,8 +206,8 @@ function sendHttpRequest(urlStr, contentType, requestStr) {
 
 function handleHttpResponse(res) {
     var response = JSON.parse(res);
-    /*console.log("** ** handleHttpResponse ** **");
-    console.log(JSON.stringify(response, null, 4));*/
+//    console.log("** ** handleHttpResponse ** **");
+//    console.log(JSON.stringify(response, null, 4));
     handleSlimResponse(response);
 }
 
@@ -279,6 +280,8 @@ function handleSlimResponse(req_res) {
                 duration = Number(stat["duration"] || 1);
                 cur_index = Number(stat["playlist_cur_index"] || 0);
                 tracks = Number(stat["playlist_tracks"] || 0);
+                is_playing = stat["mode"] === "play";
+                is_seekable = Boolean(stat["can_seek"] || 0);
 
                 timeplayed = _format_played_time(time);
                 if (duration > time) {
@@ -682,7 +685,9 @@ function sendSongInfo() {
                     "shuffle": shuffle,
                     "repeat": repeat,
                     "cur_index": cur_index,
-                    "tracks": tracks
+                    "tracks": tracks,
+                    "is_playing": is_playing,
+                    "is_seekable": is_seekable
                 });
 }
 

@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     Shared *shared = new Shared();
     view->rootContext()->setContextProperty("shared", shared);
     QString x = app->applicationDirPath();
-    view->setSource(QUrl::fromLocalFile("/usr/share/harbour-squeeze-remote/qml/harbour-squeeze-remote.qml"));
+    view->setSource(SailfishApp::pathTo("qml/harbour-squeeze-remote.qml"));
 
     view->showFullScreen();
 

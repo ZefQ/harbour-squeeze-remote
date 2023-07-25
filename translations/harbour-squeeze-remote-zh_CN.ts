@@ -2,72 +2,66 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
-    <name>LibraryPage</name>
-    <message>
-        <source>Go back home</source>
-        <translation>返回主页</translation>
-    </message>
-    <message>
-        <source>Select another player</source>
-        <translation>选择其它播放器</translation>
-    </message>
-    <message>
-        <source>Now playing</source>
-        <translation>正在播放</translation>
-    </message>
-    <message>
-        <source>Playlist</source>
-        <translation>播放列表</translation>
-    </message>
-    <message>
-        <source>Play</source>
-        <translation>播放</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>添加</translation>
-    </message>
-    <message>
-        <source>More</source>
-        <translation>更多</translation>
-    </message>
+    <name>LibraryItemContextMenu</name>
     <message>
         <source>Input</source>
-        <translation>输入</translation>
+        <translation type="unfinished">输入</translation>
     </message>
     <message>
         <source>Type here...</source>
-        <translation>在此输入……</translation>
+        <translation type="unfinished">在此输入……</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>好的</translation>
+        <translation type="unfinished">好的</translation>
     </message>
+    <message>
+        <source>Play</source>
+        <translation type="unfinished">播放</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">添加</translation>
+    </message>
+    <message>
+        <source>More</source>
+        <translation type="unfinished">更多</translation>
+    </message>
+</context>
+<context>
+    <name>LibraryPage</name>
     <message>
         <source>No items found</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>PlayerPage</name>
+    <name>LibraryPushDownMenu</name>
     <message>
         <source>Settings</source>
-        <translation>设置</translation>
-    </message>
-    <message>
-        <source>Select another player</source>
-        <translation>选择其它播放器</translation>
-    </message>
-    <message>
-        <source>Playlist</source>
-        <translation>播放列表</translation>
+        <translation type="unfinished">设置</translation>
     </message>
     <message>
         <source>Music library</source>
-        <translation>音乐库</translation>
+        <translation type="unfinished">音乐库</translation>
     </message>
     <message>
+        <source>Select another player</source>
+        <translation type="unfinished">选择其它播放器</translation>
+    </message>
+    <message>
+        <source>Playlist</source>
+        <translation type="unfinished">播放列表</translation>
+    </message>
+</context>
+<context>
+    <name>PlayerPushUpMenu</name>
+    <message>
         <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected to</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

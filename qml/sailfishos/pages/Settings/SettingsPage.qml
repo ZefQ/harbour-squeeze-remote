@@ -1,3 +1,5 @@
+
+
 /*  Squeezeui - Graphical user interface for Squeezebox players.
 #
 #  Copyright (C) 2014 Frode Holmer <fholmer+squeezeui@gmail.com>
@@ -15,14 +17,13 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Dialog {
     canAccept: ((serverip.text !== "") && (serverhttpport.text !== ""))
 
-    acceptDestination: Qt.resolvedUrl("StartupPage.qml")
+    acceptDestination: Qt.resolvedUrl("../../pages/Startup/StartupPage.qml")
     acceptDestinationAction: PageStackAction.Replace
 
     DialogHeader {
@@ -40,7 +41,7 @@ Dialog {
 
         Column {
             id: dialogcolumn
-            width: parent.width - ( Theme.paddingLarge * 4)
+            width: parent.width - (Theme.paddingLarge * 4)
 
             anchors {
                 centerIn: parent
@@ -48,7 +49,8 @@ Dialog {
 
             spacing: Theme.paddingMedium
 
-            TextField { // dummy to fix the ui: move next label down. maybe the real reason is the centerIn of the column.
+            TextField {
+                // dummy to fix the ui: move next label down. maybe the real reason is the centerIn of the column.
                 height: 100 * Theme.pixelRatio
                 color: Theme.highlightColor
                 text: qsTr("")
@@ -116,8 +118,9 @@ Dialog {
                 EnterKey.onClicked: focus = false
             }
         }
-    VerticalScrollDecorator { flickable: parent }
-
+        VerticalScrollDecorator {
+            flickable: parent
+        }
     }
     onAccepted: {
         var _settings;
@@ -140,7 +143,6 @@ Dialog {
             _settings["server_port"] = serverhttpport.text; // need to be deleted
             _settings["server_http_port"] = serverhttpport.text;
             _settings["server_tcp_port"] = parseInt(servertcpport.text);
-
 
             player.setSettings(_settings);
             //player.saveSettings(); //not needed

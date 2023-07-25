@@ -7,8 +7,6 @@ ListItem {
     property string _title: fullTitle.split("\n", 2)[0]
     property string _description: fullTitle.split("\n", 2)[1] || ""
 
-    openMenuOnPressAndHold: false
-
     width: parent.width
     contentHeight: Theme.itemSizeMedium
 

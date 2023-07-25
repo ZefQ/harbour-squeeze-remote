@@ -1,3 +1,5 @@
+
+
 /*  Squeezeui - Graphical user interface for Squeezebox players.
 #
 #  Copyright (C) 2014 Frode Holmer <fholmer+squeezeui@gmail.com>
@@ -16,11 +18,11 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 /*
     This (PlayerRemoteWorkerscript.qml) loads javascript into a background thread.
     If this do not work (broken in qt5.2) consider using PlayerRemoteJavascript.qml instead.
   */
-
 import QtQuick 2.0
 import "base" as Base
 
@@ -35,14 +37,16 @@ Base.PlayerRemoteBase {
 
     Timer {
         id: ajax
-        interval: 100; running: false; repeat: true
-        onTriggered: frontend.statusCommand();
+        interval: 100
+        running: false
+        repeat: true
+        onTriggered: frontend.statusCommand()
 
         function init() {
             if (player.backendready) {
                 frontend.init();
                 frontend.statusCommand();
-                ajax.start()
+                ajax.start();
             }
         }
     }
@@ -52,42 +56,60 @@ Base.PlayerRemoteBase {
     // WorkerScript for the javascript frontend
     frontend: WorkerScript {
         id: frontend
-        source: "../../js/common/remotecontrol.js"
+        source: "qrc:/js/common/remotecontrol.js"
 
         function cmdAjax(cmd) {
-            sendMessage({"type": "buttonCommand", "value": cmd});
+            sendMessage({
+                            "type": "buttonCommand",
+                            "value": cmd
+                        });
         }
         function menuAjax(cmd) {
             menuReady = false;
             menuDone = false;
-            sendMessage({"type": "menuCommand", "value": cmd});
+            sendMessage({
+                            "type": "menuCommand",
+                            "value": cmd
+                        });
         }
         function media_go(mediaobj, actionstr, inputstr) {
             menuReady = false;
             menuDone = false;
-            sendMessage({"type": "menuMedia", "value": [mediaobj, actionstr, inputstr]});
+            sendMessage({
+                            "type": "menuMedia",
+                            "value": [mediaobj, actionstr, inputstr]
+                        });
         }
         function setMenuModel(mm) {
-            sendMessage({"type": "menuModel", "value": mm});
+            sendMessage({
+                            "type": "menuModel",
+                            "value": mm
+                        });
         }
         function handleHttpResponse(httpResponse) {
-            sendMessage({"type": "httpResponse", "value": httpResponse});
+            sendMessage({
+                            "type": "httpResponse",
+                            "value": httpResponse
+                        });
         }
         function statusCommand() {
-            sendMessage({"type": "statusCommand"});
+            sendMessage({
+                            "type": "statusCommand"
+                        });
         }
         function init() {
             sendMessage({
                             "type": "init",
                             "server": backendServerAddress,
                             "playerid": backendPlayerid,
-                            "serverport" : backendServerPort,
-                            "model": menuModel});
+                            "serverport": backendServerPort,
+                            "model": menuModel
+                        });
         }
 
         onMessage: {
             var _settings;
-
+            //            console.log("KEMPE WAS HERE!!!", JSON.stringify(messageObject))
             if (messageObject.type === "updateSongInfo") {
 
                 name = messageObject.name;
@@ -106,7 +128,10 @@ Base.PlayerRemoteBase {
                 player.repeat = messageObject.repeat;
                 shuffle = messageObject.shuffle;
                 cur_index = messageObject.cur_index;
-                tracks = messageObject.tracks
+                tracks = messageObject.tracks;
+                isPlaying = messageObject.is_playing;
+                isSeekable = messageObject.is_seekable;
+
                 frontendready = true;
             }
             else if (messageObject.type === "updateMenuReady") {
@@ -138,7 +163,6 @@ Base.PlayerRemoteBase {
                         break;
                     }
                 }
-
             }
         }
     }

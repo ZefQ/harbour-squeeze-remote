@@ -47,6 +47,8 @@ Rectangle {
     property string timeplayed: ""
     property string timeleft: ""
     property double duration: 1
+    property bool isPlaying: false
+    property bool isSeekable: false
 
 
     // playlist:
@@ -93,6 +95,7 @@ Rectangle {
     function button_jump_rew() { frontend.cmdAjax(['button', 'jump_rew']) }
     function button_jump_fwd() { frontend.cmdAjax(['button', 'jump_fwd']) }
     function button_pause() { frontend.cmdAjax(["pause"]) }
+    function button_stop() { frontend.cmdAjax(["stop"]) }
     function button_play() { frontend.cmdAjax(["play"]) }
     function slider_time(t) { frontend.cmdAjax(['time', t]) }
     function slider_volume(v) { frontend.cmdAjax(['mixer', 'volume', v]) }

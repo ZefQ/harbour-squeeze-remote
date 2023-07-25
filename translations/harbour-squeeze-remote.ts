@@ -2,21 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>LibraryPage</name>
+    <name>LibraryItemContextMenu</name>
     <message>
-        <source>Go back home</source>
+        <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select another player</source>
+        <source>Type here...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Now playing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Playlist</source>
+        <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -31,27 +27,22 @@
         <source>More</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type here...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="unfinished"></translation>
-    </message>
+</context>
+<context>
+    <name>LibraryPage</name>
     <message>
         <source>No items found</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>PlayerPage</name>
+    <name>LibraryPushDownMenu</name>
     <message>
         <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Music library</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -62,12 +53,15 @@
         <source>Playlist</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>PlayerPushUpMenu</name>
     <message>
-        <source>Music library</source>
+        <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Volume</source>
+        <source>Connected to</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
